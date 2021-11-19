@@ -1,0 +1,37 @@
+Vuota
+Sei nella dimora del demone NecomT. 
+Vuota
+Sei nella vecchia cappella del castello. Oramai anche i santi rinnegano questo posto.
+vuota
+Sei nelle cucine del castello. In questa stanza è presente un fabbro con cui puoi commerciare.
+Sei nella sala d’entrata del Castello. Circondato da armature noti una strana cassaforte; c’è un baule con cui puoi interagire.
+Ti trovi in una stanza piena di quadri. Sono presenti due porte, una a est e una a nord.
+Sei in quella che era la stanza degli ospiti ormai sudicia e mal ridotta.In fine, c’è una cassettiera con cui puoi interagire.
+Sei nella dimora del duca dell’inferno, Astraroth. 
+Sei in un corridoio puoi andare vesto la porta a est o a ovest. In fine, c’è una cassettiera con cui puoi interagire.
+Sei nel magazzino del castello. il luogo in cui ti trovi conserva strani recipienti per pieni di muffa, il baule è un recipiente che contiene oggetti preziosi.
+Vuota
+Sei nella dimora del demone più possente dell’inferno, Leviatano. 
+Vuota
+Sei al secondo piano del castello.
+Sei una stanza caotica e piena di oggetti. In fine, c’è una cassettiera con cui puoi interagire.
+Sei in un corridoio oscuro puoi proseguire verso sud. C’è un baule con cui puoi interagire.
+Sei in una camera da letto molto spaziosa e una dama ti chiama.
+Nella stanza ci sono esposti molti oggetti interessanti. In fine, c’è un baule con cui puoi interagire.
+Vuota
+Sei nella dimora dell’angelo caduto, Sephiroth. 
+Sei in un passaggio stretto che ti ha portato in un grande armadio. In fine, c’è una cassettiera con cui puoi interagire. 
+Sei nella seconda ala del museo. In fine, c’è un baule con cui puoi interagire.
+Sei nella libreria del castello. In questa stanza è presente un alchimista con cui puoi commerciare.
+Vuota
+Vuota
+Sei nel salottino del re. C’è una cassettiera con cui puoi interagire.
+Sei al terzo piano del castello. Il fantasma del vecchio re appare difronte a te.
+Vuota
+Sei nella dimora del grande torturatore Asmodeo.
+Sei nello studio del re. In fine, c’è un baule con cui puoi interagire.
+Sei nella dimora del leggendario squartatore infernale, Raphaim. 
+Vuota
+Sei nel mastio del castello. In fine, c’è un baule con cui puoi interagire.
+Sei nella dimora del re degl’inferi, Samael. 
+Sei nella torre di guardia del castello. In fine, c’è un baule con cui puoi interagire.

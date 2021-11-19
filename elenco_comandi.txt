@@ -1,0 +1,23 @@
+Il gioco si basa su brevi frasi di comando che ti permetteranno di spostarti o interagire con l’ambiente di gioco. 
+-Digitando “andare + (nord/ sud/ est/ ovest) ti sposterai da un’area all’altra;
+-Digitando “usare + scale” ti potrai spostare tra i diversi piani del castello;
+-Digitando “inventario” riceverai un elenco dettagliato di tutti gli oggetti presenti nel tuo inventario;
+
+Durante la tua avventura potrai interagire con alcuni oggetti.
+-Digitando “aprire + nome oggetto” potrai sbloccare porte o interagire con cassettiera e bauli;
+-Digitando “prendi + nome oggetto” aggiungerai un nuovo oggetto al tuo inventario;
+-Digitando “guardare + stanza” potrai ricevere una descrizione di ciò che ti circonda;
+-Digitando “guardare + dipinti” potrai ricevere una descrizione del o dei quadri;
+-Digitando “leggere + libro” riceverai un estratto riassuntivo del libro;
+
+Nel gioco puoi anche incontrare sconosciuti o mercanti che ti aiuteranno nella tua impresa.
+-Digitando “parlare + nome personaggio” riceverai informazioni utili o no per la tua impresa;
+-Digitando “si” o “no” alle domande di acquisto dei mercanti aggiungerai un nuovo oggetto al tuo inventario;
+
+Inoltre, ricordati che la vita non è facile e neanche questo gioco. Dovrai combattere per accaparrarti il bottino del castello.
+-Digitando “attaccare” sferrerai un fendente non indifferente al tuo nemico;
+-Digitando “parare” o “schivare” diminuirai o annullerai il colpo del tuo nemico;
+-Digitando “usare + pozione” riuscirai a curarti e recuperare una parte della vita persa;
+I combattimenti sono veloci ma attenzione se morirai tre volte durante tutta la tua avventura il gioco si resetta e ricominci da 0.
+In fine, ammettiamo che il nostro gioco narrativamente parlando è un po' lungo, perciò, potrai salvare la tua partita, uscire dal gioco e ricaricarla quando vuoi. Digitando rispettivamente i comandi “salvare”, “uscire” e “continuare” potrai decidere di ritagliarti del tempo e giocare quando vuoi. Nota che il comando "uscire" non salva automaticamente la partita prima di chiudere il gioco.
+Buona partita giocatore_

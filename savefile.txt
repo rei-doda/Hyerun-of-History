@@ -1,0 +1,363 @@
+16
+16
+0
+0
+0
+6
+vuoto
+0
+0
+0
+0
+0
+Imp
+4
+4
+4
+1
+3
+Segugi Infernali
+6
+6
+4
+1
+11
+NecomT
+8
+8
+4
+2
+1
+Astaroth
+12
+12
+4
+3
+9
+Imp
+4
+4
+6
+1
+16
+Corvi Putrefatti
+5
+5
+6
+1
+23
+Goblin
+6
+6
+6
+1
+18
+Sephiroth
+12
+12
+6
+2
+21
+Leviatano
+18
+18
+6
+3
+13
+Asmodeo
+16
+16
+8
+2
+30
+Raphaim
+16
+16
+8
+2
+32
+Samael
+24
+24
+8
+3
+35
+Ferthdoc
+0
+Ley’isum
+0
+Alleria
+0
+Arthur
+0
+-stanza vuota 
+0
+0
+0 1 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Dimora di NecomT  
+0 
+0
+0 1 0 0
+0
+3
+0 0 0 0 0 0 0 0 0 0 4 1 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Cappella 
+0
+LIBRO: La favola del nano e della fata: la storia narra di come la spavalderia di un nano nel creare oggetti preziosi abbia perso contro la semplicità della fata che l’oggetto più prezioso è la natura. Infatti, la fata vinse sul nano mostrandogli il fiore più bello presente in natura. Questa favola ci insegna a rimanere umili e a rispettare la natura.
+0 1 0 0
+0
+1
+0 0 0 9 0 0 0 0 0 0 11 0 0 0 0 0 0 0 0 0
+-stanza vuota
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Cucina 
+0
+0
+1 0 1 0
+1
+0
+0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0
+-Sala d’entrata 
+0
+0
+0 1 1 1
+0
+0
+5 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0
+-Corridoio 
+DIPINTI: Su tutti e quattro i lati della stanza ci sono quattro quadri enormi che narrano una battaglia. Il primo mostra un cavaliere cha tiene un’alabarda che sventola una bandiera. Il cavaliere si prepara alla carica con il suo cavallo bianco. Il secondo mostra il cavaliere che combatte contro i suoi nemici. Nel terzo dipinto l’alabarda è a terra e il cavaliere impugna una spada unica nel suo genere, tentando con fatica vi vincere lo scontro. Nel quarto quadro la spada si trova nel fodero li cavaliere e di lato verso i suoi uomini e uno di questi ultimi gli porge una corona. Quel cavaliere era il re del castello di Hyerun.
+0
+2 0 1 1
+0
+0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0
+-Stanza degli ospiti 
+0
+0
+0 0 0 1 
+0
+0
+0 9 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 9 0
+-Dimora di Astaroth 
+0
+0
+0 0 1 0 
+0
+4
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Corridoio 
+DIPINTI: I quadri presenti nel corridoio raffigurano dei personaggi col fare illustre, di sicuro sono i membri della dinastia dei reali che abitavano il castello. Un quadro desta la tua attenzione. Una dama bellissima di carnagione mulatta, capelli nero tenebra, con due occhi color oceano. Forse ti sei innamorato o forse sei solo affascinato dal diadema che porta al collo.
+0
+0 0 1 1 
+0 
+0 
+10 0 0 0 0 0 0 0 0 0 11 0 0 0 0 0 0 0 0 0
+-Magazzino 
+0
+0
+0 0 1 0
+0
+2
+0 0 0 0 0 5 0 0 0 0 7 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Dimora di Leviatano 
+0
+0 1 0 0
+0 
+9
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Corridoio 
+DIPINTI: Di colpo capisci la potenza dell’ormai vecchio re, un quadro enorme raffigura la sua persona in un’armatura d’orata, ricamata di gemme preziose, con la mano sinistra regge un enorme scudo lungo ornato dal suo stemma, il cavallo a 8 zampe, e nella mano destra impugna una spada luminosa.  
+0
+0 1 1 1 
+0
+0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0
+-Sgabuzzino 
+0
+0
+0 0 0 1
+0
+5
+0 0 0 0 0 0 0 0 9 0 1 0 0 0 0 0 0 9 0 0
+-Corridoio 
+DIPINTI: I quadri narrano la tragica storia di un villaggio che fu vittima di un incendio non naturale, infatti dei mostri sputafuoco sono raffigurati nei dipinti.
+0
+3 1 0 0 
+0 
+0
+10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Stanza da letto  
+0
+0
+1 1 0 1
+3
+7
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+-Museo1 
+0
+LIBRO: Si può dire che la mente umana è uno strumento prezioso, come lo sono le mani e le gambe.Queste parti sono molto utili se intraprendi un’antica carriera, quella del ladro. Di sicuro il più grande ladro del mondo è Lupin, il famoso ladro gentil uomo che ruba per il mondo. In questo libro narreremo la grande avventura che lo porto in Inghilterra alla ricerca del tesoro di re Arthur. 
+1 1 0 0
+0
+0
+0 0 5 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Dimora di Sephiroth 
+0
+0
+1 0 0 0 
+0
+8
+0 0 0 0 0 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0
+-Armadio  
+0
+0
+1 0 1 0
+0 
+0
+0 0 0 0 0 0 9 0 0 0 10 0 0 0 0 0 0 0 0 0
+-Museo2 
+0
+0
+1 0 1 1
+0
+6
+0 0 0 0 5 0 0 0 0 0 11 0 0 0 0 0 0 0 0 0
+-Libreria 
+0
+0
+0 0 0 1
+2
+0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Salottino del re   
+0
+LIBRO: Erano giorni di magra e la polvere nera copriva ogni dove
+Così inizia la prima pagina del libro. Era da giorni che nessuno usciva dalle mura del castello, ognuno provvedeva alle proprie mansioni, ma era dura, ogni giorno il cibo diminuiva. Guerrieri impavidi costellavano i torrioni e difendevano le popolazioni da quello che passo alla storia come assedio più lungo di Hyerun.
+0 1 1 0
+0
+0
+1 0 0 0 0 0 0 0 0 0 11 0 0 0 0 0 0 0 0 0
+-Corridoio   
+DIPINTI: I quadri rappresentano l’ennesima tragedia della lunga storia di Hyerun. Il re è raffigurato come un angelo che tende le mani al cielo mentre Samael re degl’inferi divora le sue carni ormai senza vita.
+0
+1 1 0 1
+4
+0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Dimora di Asmodeo 
+0
+0
+0 0 1 0
+0
+10
+1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0
+-Studio del re 
+0
+0
+1 0 4 1
+0
+2
+6 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0
+-Dimora di Raphaim 
+0
+0
+1 1 0 1
+0
+11
+2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-stanza vuota 
+0
+0
+0 0 0 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+-Mastio 
+0
+LIBRO: Ogni regno ha nelle sue pagine di storia una pagina nera
+Durante il regno del re pazzo Fiturth, il regno cadde in un periodo buoi. Le feste della regione erano vietate, coprifuoco al calar del sole, e periodicamente una dama doveva presentarsi al castello e giacere col re, ma se questo vi sembra orribile, il destino di quella dama lo era ancora di più. La dama il giorno dopo veniva uccisa. Il re aveva un figlio Avad e non sopportava la politica del padre e i suoi intrattenimenti personali. Così decise di spodestarlo e riportare prosperità e pace nel suo futuro regno.
+0 0 1 0
+0
+0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 0 0 0
+-Dimora di Samael 
+0
+0
+0 0 1 1
+0
+12
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+-Torre di guardia 
+0
+1
+1 0 0 1
+0
+0
+13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 0 0 0 0
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+Benvenuti in Hyerun of History
+
+  Sviluppato da:
+  -Nicodemo Armenise
+  -Rei Doda
+  -Alessio Fasano
+
+A causa di un fato mal scritto, le Norne mi hanno condotto per un sentiero pericoloso. Senza una motivazione degna di onore ma solo per la fame di ottenere più ricchezze, iniziai un viaggio inaspettato che mi condusse di fronte ai cancelli di Hyerun, un antico castello in rovina. Quei cancelli in legno di quercia orami invecchiati e le cerniere di ferro arrugginite, avrebbero spaventato chiunque. Uno strano luccichio fuoriesce da una vetrata al terzo piano del castello. Quell’immagine mi incuriosì ed entrai nel castello. Mi ritrovai in una grande sala, in passato questo era il luogo dove il re accoglieva i suoi ospiti.
+
+I comandi di gioco sono brevi frasi da inserire per procedere nel gioco. Se digiti “guardare”, il gioco ti fornisce una descrizione di ciò che ti circonda. Digitando "inventario" ti dice cosa stai trasportando. Comandi come “aprire” o “prendere” ti aiutano a interagire con gli oggetti. Puoi digitare in qualsiasi momento “comandi” per avere la lista dei comandi che puoi utilizzare nel gioco_
