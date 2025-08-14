@@ -218,13 +218,13 @@ DIPINTI: I quadri narrano la tragica storia di un villaggio che fu vittima di un
 -Stanza da letto  
 0
 0
-0 1 1 1
+1 1 0 1
 3
 7
 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
 -Museo1 
 0
-LIBRO: Si può dire che la mente umana è uno strumento prezioso, come lo sono le mani e le gambe. Queste parti sono molto utili se intraprendi un’antica carriera, quella del ladro. Di sicuro il più grande ladro del mondo è Lupin, il famoso ladro gentil uomo che ruba per il mondo. In questo libro narreremo la grande avventura che lo porto in Inghilterra alla ricerca del tesoro di re Arthur. 
+LIBRO: Si può dire che la mente umana è uno strumento prezioso, come lo sono le mani e le gambe.Queste parti sono molto utili se intraprendi un’antica carriera, quella del ladro. Di sicuro il più grande ladro del mondo è Lupin, il famoso ladro gentil uomo che ruba per il mondo. In questo libro narreremo la grande avventura che lo porto in Inghilterra alla ricerca del tesoro di re Arthur. 
 1 1 0 0
 0
 0

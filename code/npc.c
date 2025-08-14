@@ -121,11 +121,11 @@ int parlare_npc(npc *npc_qualunque, int id_npc) {
   }
   else if(id_npc == 3){
     if(stato_quest == 0){
-      esito = 4; //prima volta con dama
+      esito = 4; //prima volta
       set_stato_quest(npc_qualunque, 1);
     }
     else if(stato_quest == 1){
-      esito = 5; //seconda volta con dama
+      esito = 5; //seconda volta
     }
   }
   else if(id_npc == 4){

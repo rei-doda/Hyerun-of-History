@@ -136,6 +136,7 @@ void salva_stanza(stanza stanza_qualunque, FILE *savefile) {
   int *dir_temp;
   int num_temp;
   int *ogg_temp;
+  int i=0;
   int j=0;
   int k=0;
 
@@ -153,7 +154,7 @@ void salva_stanza(stanza stanza_qualunque, FILE *savefile) {
   fputs("\n", savefile);
 
   dir_temp = get_direzioni(stanza_qualunque);
-  while (j<4) {
+  while(j<4) {
     fprintf(savefile, "%d ", dir_temp[j]);
     j++;
   }
@@ -175,4 +176,6 @@ void salva_stanza(stanza stanza_qualunque, FILE *savefile) {
   }
   k=0;
   fprintf(savefile, "\n");
+    
+  i++;  
 }

@@ -141,7 +141,7 @@ int prendere_oggetto(stanza *stanza_qualunque, int *inventario, int id_oggetto) 
   int i;
   int temp;
 
-  temp = get_oggetto_raccoglibile(*stanza_qualunque, id_oggetto);
+  temp = stanza_qualunque->oggetti_raccoglibili[id_oggetto];
   if (temp < 5 && temp != 0) {
     i = temp;
     while (temp > 0) {

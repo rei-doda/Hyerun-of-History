@@ -16,8 +16,8 @@ Nel gioco puoi anche incontrare sconosciuti o mercanti che ti aiuteranno nella t
 
 Inoltre, ricordati che la vita non è facile e neanche questo gioco. Dovrai combattere per accaparrarti il bottino del castello.
 -Digitando “attaccare” sferrerai un fendente non indifferente al tuo nemico;
--Digitando “parare” o “schivare” diminuirai o annullerai il colpo del tuo nemico;
+-	igitando “parare” o “schivare” diminuirai o annullerai il colpo del tuo nemico;
 -Digitando “usare + pozione” riuscirai a curarti e recuperare una parte della vita persa;
 I combattimenti sono veloci ma attenzione se morirai tre volte durante tutta la tua avventura il gioco si resetta e ricominci da 0.
-In fine, ammettiamo che il nostro gioco narrativamente parlando è un po' lungo, perciò, potrai salvare la tua partita, uscire dal gioco e ricaricarla quando vuoi. Digitando rispettivamente i comandi “salvare”, “uscire” e “continuare” potrai decidere di ritagliarti del tempo e giocare quando vuoi. Nota che il comando "uscire" non salva automaticamente la partita prima di chiudere il gioco.
-Buona partita giocatore_
+In fine, ammettiamo che il nostro gioco narrativamente parlando è un po' lungo, perciò, potrai salvare la tua partita, uscire dal gioco e ricaricarla quando vuoi. Digitando rispettivamente i comandi “salvare”, “uscire” e “continuare” potrai decidere di ritagliarti del tempo e giocare quando vuoi.
+Buna partita giocatore_

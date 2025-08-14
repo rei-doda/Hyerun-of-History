@@ -95,7 +95,7 @@ void alloca_memoria() {
   }
 }
 
-void libera_memoria() {
+void libera_memoria(stanza *stanza_qualunque, nemico *nemico_qualunque, npc *npc_qualunque) {
   int i=0;
   
   while (i<STANZE) {

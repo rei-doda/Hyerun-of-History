@@ -15,12 +15,13 @@ int main(void) {
   
   int stanze[37] = {1, 0, 3, 0, 5, 6, 7, 8, 9, 10, 11, 0, 13, 0, 15, 16, 17, 18, 19, 0,21, 22, 23, 24, 0, 0, 27, 28, 0, 30, 31, 32, 0, 34, 35, 36};
 
-  int inventario[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  int inventario[20] = {0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 30, 1, 1, 1, 1, 1, 0, 0, 0, 0};
 
   char *comando_utente; //riceve da tastiera il comando completo
   char *sottostringhe[2]; //mantiene temporaneamente verbo e oggetto del comando
   char *comando_verbo; //verbo del comando
-  char *comando_oggetto; //oggetto del comando  
+  char *comando_oggetto; //oggetto del comando
+  
 
   int i = 0; //contatore per ciclare tra i comandi primari o combattimento
   int j = 0; //contatore per ciclare tra i comandi secondari
@@ -30,6 +31,7 @@ int main(void) {
   int esito_parser; //da dare in input alle funzioni che escono dal parser
   int quit = 0;
   int stanza_attuale;
+  int cntr_combat = 0;
   int lavoro; //eventuale variabile di lavoro all'interno del parser
   int id_npc; //per mantenere con chi si sta parlando
   int stanza_aggiornata = 0;
@@ -37,6 +39,8 @@ int main(void) {
   int danni_inflitti;
   int nemico_attuale;
   int contatore_vite = 4;
+
+  intro = calloc(200, sizeof(char));
    
   FILE *savefile;
   FILE *newgame;
@@ -45,7 +49,6 @@ int main(void) {
   FILE *storia;
   FILE *pergamene;
 
-  intro = calloc(200, sizeof(char));
   
   alloca_memoria();
 
@@ -54,15 +57,18 @@ int main(void) {
   introduzione = fopen("introduzione.txt", "r");
   storia = fopen("storia.txt","r");
   pergamene = fopen("pergamene.txt", "r");
-  elenco_comandi = fopen("elenco_comandi.txt","r");
 
   carica_da_file(newgame);
+  
+  
+
 
   while (quit == 0) {
 
     if (contatore_vite == 4) { /*La descrizione viene mostrata solo la prima                                  volta*/
       contatore_vite--;
       carica_storia(introduzione);
+      //fclose(introduzione);
       printf("\n\n");
     }
 
@@ -91,6 +97,8 @@ int main(void) {
     
       comando_verbo = sottostringhe[0];
       comando_oggetto = sottostringhe[1];
+      //printf("%s\n", comando_verbo);
+      //printf("%s\n", comando_oggetto);
 
       while (i<15 && stato1 == 104) {
         if (!strcmp(comandi_primario[i], comando_verbo)) {
@@ -116,7 +124,7 @@ int main(void) {
         j = 4;
         if (!strcmp(comandi_secondario[j], comando_oggetto)) {
           stato2 = j;
-          printf("%s\n", get_nome_stanza(stanza_qualunque[stanza_attuale]));
+          printf("%s\n", stanza_qualunque[stanza_attuale].nome_stanza);
           esito_parser = 0;
           printf("Attorno a te vedi: ");
 
@@ -134,7 +142,7 @@ int main(void) {
           }
 
           if (!strcmp(get_dipinto(stanza_qualunque[stanza_attuale]), "0\n")) {
-            printf("dei dipinti, ");
+            printf("un dipinto, ");
           }
           if (!strcmp(get_libro(stanza_qualunque[stanza_attuale]), "0\n")) {
             printf("un libro, ");
@@ -150,10 +158,12 @@ int main(void) {
           }
           
           esito_parser = 0;
+          int indice;
           while (esito_parser<20) {
+            indice = esito_parser+8;
             lavoro = get_oggetto_raccoglibile(stanza_qualunque[stanza_attuale], esito_parser);
             if (lavoro != 0 && lavoro < 5) {
-              printf("%d %s, ", lavoro, comandi_secondario[esito_parser+8]);
+              printf("%d %s, ", lavoro, comandi_secondario[indice]);
             }
 
             esito_parser++;
@@ -172,7 +182,7 @@ int main(void) {
         else if (!strcmp(comandi_secondario[j+1], comando_oggetto)) {
           stato2 = j+1;
           if (!strcmp(get_dipinto(stanza_qualunque[stanza_attuale]), "0\n")) {
-            metti_a_capo(get_dipinto(stanza_qualunque[stanza_attuale]));
+            metti_a_capo(stanza_qualunque[stanza_attuale].dipinto);
             printf("\n");
           }
           else {
@@ -196,7 +206,7 @@ int main(void) {
         }
         if (stato2 == 104) {
           j = 6;
-          while (j<8 && stato2 == 104) { //baule o cassettiera
+          while (j<8 && stato2 == 104) { //baule o cassettiera inserire collocazione 
             if (!strcmp(comandi_secondario[j], comando_oggetto)) {
               stato2 = j;
               esito_parser = presenza_baule_cassettiera(stanza_qualunque[stanza_attuale]);
@@ -231,7 +241,7 @@ int main(void) {
       }
       else if (stato1 == 3) { //PRENDERE
         j = 8;
-        while (j<28 && stato2 == 104) {
+        while (j<26 && stato2 == 104) {
           if (!strcmp(comandi_secondario[j], comando_oggetto)) {
             stato2 = j;
             esito_parser = prendere_oggetto(&stanza_qualunque[stanza_attuale], inventario, stato2-8);
@@ -244,7 +254,7 @@ int main(void) {
               printf("\n\n");
             }
             else {
-              printf("%s non è presente nella stanza.\n\n", comandi_secondario[stato2]);
+              printf("%s non è presente nella stanza\n\n", comandi_secondario[stato2]);
             }
           }
           j++;
@@ -272,7 +282,7 @@ int main(void) {
           stato2 = j + 20;
           esito_parser = usare_scale(&utente);
           if (esito_parser == 0) {
-            printf("Non ci sono scale nella stanza.\n");
+            printf("Non ci sono scale nella stanza\n");
           }
           else {
             printf("Hai usato le scale.\n\n");
@@ -284,11 +294,13 @@ int main(void) {
       }
       else if (stato1 == 5) { //PARLARE
         j = 29;
-
+        int a=0;
+        int b=2;
         while (j<31 && stato2 == 104) {//Fabbro o Alchimista
        
-          if (!strcmp(comandi_secondario[j], comando_oggetto)) {
+         if (!strcmp(comandi_secondario[j], comando_oggetto)) {
             stato2 = j - 28; //traduciamo input in un numero da 1 a 4
+            //printf("parlare %d\n", stato2);
             id_npc = get_npc(stanza_qualunque[stanza_attuale]);
             if (!compara_esito_npc(id_npc, stato2)) {
               printf("%s non è presente nella stanza.\n\n", comandi_secondario[stato2+28]);
@@ -299,10 +311,10 @@ int main(void) {
               metti_a_capo((conversazioni_npc[esito_parser]));
               printf("\n\n");
               
+              i = 12;
               stato1 = 104;
 
               while (stato1 == 104) {
-                i = 12;
                 comando_utente = calloc(30, sizeof(char));
                 fgets(comando_utente, 30, stdin);
                 comando_utente[strcspn(comando_utente, "\n")] = '\0';
@@ -318,33 +330,36 @@ int main(void) {
 
                     printf("\n");
 
-                    if (!esito_parser) { //acquisto non riuscito
+                    if (!esito_parser) {
                       
                       if (stato2 == 1 ) {
-                        printf("FABBRO: Mi dispiace scricciolo, non hai tutti i pezzi e/o le monete per migliorare quella ferraglia che ti ritrovi sul petto.");
+                        printf("FABBRO: Mi dispiace scricciolo non hai tutti i pezzi e/o le monete per migliorare quella ferraglia che ti ritrovi sul petto.");
                       }
                       else if (stato2 == 2 ) {
                         printf("ALCHIMISTA: Piccolo guerriero, non hai abbastanza monete per l’acquisto.");
                       }                    
                     }
-                    else { //acquisto riuscito
+                    else {
 
                       if (stato2 == 1 ) {
-                        printf("FABBRO: È un piacere fare affari con te.\n\n");
+                        printf("FABBRO: È un piacere fare affari con te.\n");
                         if(get_armor_type(utente)==1){
-                          printf("-Ora indossi l'armatura di bronzo e hai 24 hp.\n\n");
+                          printf("-Ora indossi l'armatura di bronzo e hai 24 hp.");
                         }
                         else{
-                          printf("-Ora indossi l'armatura di ferro e hai 32 hp.\n\n");
+                          printf("-Ora indossi l'armatura di ferro e hai 32 hp.");
                         }
                        
                       }
                       else if (stato2 == 2) {
-                        printf("ALCHIMISTA: Ooh, monete scintillanti!\n\n");
-                        printf("-Nuova pozione aggiunta al tuo inventario.\n");
-                        printf(" Pozioni in tuo possesso: %d\n\n",inventario[0]);
+                        printf("ALCHIMISTA: Ooh, monete scintillanti!.\n");
+                        printf("-Nuova pozione aggiunta al tuo inventario\n");
+                        printf(" Pozioni in tuo possesso %d",inventario[0]);
                       }  
                     }
+
+                    printf("\n\n");
+
                   }
 
                   else if (stato1 == 13) {
@@ -360,14 +375,15 @@ int main(void) {
                   }
                 }
                 if (stato1 == 104) {
-                  printf("Impara l’italiano e scrivi un comando decente (sì o no).\n\n");
+                  printf("Impara l’italiano e scrivi un comando decente.\n\n");
+                  
                 }
               }
+              
             }
           }
           j++;
         }
-
         while (j<33 && stato2 == 104) { //Dama o Re
           if (!strcmp(comandi_secondario[j], comando_oggetto)) {
             stato2 = j - 28; //traduciamo input in un numero da 1 a 4
@@ -376,30 +392,28 @@ int main(void) {
             if (!compara_esito_npc(id_npc, stato2)) {
               printf("%s non è presente nella stanza.\n\n", comandi_secondario[stato2+28]);
             }
-            else {
-              esito_parser = parlare_npc(&npc_qualunque[stato2-1], id_npc);
+            else{
+              esito_parser = parlare_npc(&npc_qualunque[id_npc], id_npc-1);
               
-              if (esito_parser == 4){ //prima volta con la dama
+              if(esito_parser == 4){ //prima volta con la dama
                 metti_a_capo((conversazioni_npc[id_npc+1]));
                 printf("\n\n");
               }
-              else if (esito_parser == 6){ //prima volta il re
+              else if(esito_parser == 6){ //prima volta il re
                 metti_a_capo((conversazioni_npc[id_npc+1]));
                 printf("\n\n");
               }
               else if (esito_parser == 5) {
                 esito_quest = controllo_stato_quest(inventario, id_npc);
                 if (esito_quest == 1) {
-                  printf("DAMA: Ti ringrazio per il tuo aiuto, spero ci rincontreremo presto, magari in un luogo meno tenebroso, per poterci conoscere meglio e aprirci l’un altro.\n\n");
-
-                  printf("Narratore: Il cavaliere, attratto focosamente dalla dama, subisce un passionale bacio da quest’ultima che finisce in un amplesso che rivitalizza il giocatore donandogli un bonus permanente di +2 hp di vita.\n\n");
+                  printf("Dama: Ti ringrazio per il tuo aiuto, spero ci rincontreremo presto, magari in un luogo meno tenebroso, per poterci conoscere meglio e aprirci l’un altro.\n\n");
 
                   lavoro = get_max_hp_utente(utente);
                   set_max_hp_utente(&utente, lavoro+2);
                   set_current_hp_utente(&utente, lavoro+2);
                 }
                 else if(esito_quest == 2){
-                  printf("DAMA: Ti ho detto di non guardarmi! Per favore fa' presto nel trovarmi qualcosa da indossare.\n");
+                  printf("Ti ho detto di non guardarmi! Per favore fa' presto nel trovarmi qualcosa da indossare.\n");
                 }
               }
               else if (esito_parser == 7) { 
@@ -410,19 +424,76 @@ int main(void) {
 
                   printf("\n\n");
 
-                  printf("RE: Ora sai tutta la storia, hai letto quel che ho fatto, con un motivo deplorevole sei entrato in questo castello, ma ora hai compreso che la strada del ladro non fa per te. Con la saggezza racchiusa in Torgard, apri la porta a nord e purifica ciò che rimane di questo regno. Coraggio mio Re!\n\n" );
+                  printf("Re: Ora sai tutta la storia, hai letto quel che ho fatto, con un motivo deplorevole sei entrato in questo castello, ma ora hai compreso che la strada del ladro non fa per te. Con la saggezza racchiusa in Torgard, apri la porta a nord e purifica ciò che rimane di questo regno. Coraggio mio Re!\n\n" );
 
-                  printf("Il nostro cavaliere, ora diventato re, esce dunque dal castello, volendo rimediare agli errori del vecchio re e riportare la pace in tutta Hyerun.\n\n");
-
-                  carica_da_file(newgame);
-                  salva_su_file(savefile);
-
-                  quit = 1;
+                  //commento conclusivo e inserire finito gioco
                 }
                 else if (esito_quest == 2) {
-                  printf("RE: Non hai ancora recuperato le pergamene che ti ho chiesto. Torna quando le avrai trovate.\n\n");
+                  printf("Non hai ancora recuperato le pergamene che ti ho chiesto. Torna quando le avrai trovate.\n\n");
                 }
               }
+              
+
+
+              /*i = 12;
+              stato1 = 104;
+
+              while (stato1 == 104) {
+                comando_utente = calloc(30, sizeof(char));
+                fgets(comando_utente, 30, stdin);
+                comando_utente[strcspn(comando_utente, "\n")] = '\0';
+
+                while (i<14 && stato1 == 104) { // si o no
+                  if (!strcmp(comandi_primario[i], comando_utente)) {
+                    stato1 = i;
+                  }
+                  i++;
+
+                  if (stato1 == 12) {
+                    if(esito_parser == 4){
+                      esito_quest = controllo_stato_quest(utente, inventario, id_npc);
+                      if(esito_quest == 1){
+                    
+                      printf("Dama: Ti ringrazio per il tuo aiuto, spero ci rincontreremo presto, magari in un luogo meno tenebroso, per poterci conoscere meglio e aprirci l’un altro.\n\n");
+                      }
+                      else if(esito_quest == 2){
+
+                        printf("Non hai ancora recuperato tutti gli oggetti della quest.\n");
+                      }
+                    }
+                    else if(esito_parser == 5){
+                      esito_quest = controllo_stato_quest(utente, inventario, id_npc);
+                        if(esito_quest == 1){
+
+                          
+                  
+                          printf("Re: Ora sai tutta la storia, hai letto quel che ho fatto, con un motivo deplorevole sei entrato in questo castello, ma ora hai compreso che la strada del ladro non fa per te. Con la saggezza racchiusa in Torgard, apri la porta a nord e purifica ciò che rimane di questo regno. Coraggio mio Re.\n" );
+
+                          fseek(storia, 1600, SEEK_END);
+                          carica_storia(storia);
+
+                          // inserire la lettura delle pergamene
+
+                        }
+                        else if(esito_quest == 2){
+
+                          printf("Non hai ancora recuperato tutti gli oggetti della quest.\n");
+                        }
+                    }
+                  }  
+                  else if(stato1 == 13){
+                    if(esito_parser == 4){
+                      printf("Dama: Spero tu non muoia in questo orribile posto e di porterti rivedere di nuovo\n");
+                    }
+                    else if(esito_parser == 5){
+                      printf("Re: Dannato ragazzo ora non vuoi ma la verità ti trovera e dovrai accettarla che ti piaccia o no\n");
+                    }
+                  }
+                  else if (stato1 == 104) {
+                    printf("Impara l’italiano e scrivi un comando decente.\n\n");
+                  }
+                }
+              }*/
             }
           }
           j++;
@@ -440,16 +511,16 @@ int main(void) {
           
         }
         else if (stato2 == 104) {
-          printf("Impara l’italiano e scrivi un comando decente.\n\n");
+          printf("Impara l’italiano6 e scrivi un comando decente.\n");
         }
       }
       else if (stato1 == 7) { //SALVARE
         if (!strcmp(comando_oggetto, "\0")) {
-          printf("Salvataggio riuscito.\n\n");
+          printf("partita salvata\n\n");
           salva_su_file(savefile);
         }
         else {
-          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n\n");
+          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n");
         }
       }
       else if (stato1 == 8) { //CONTINUARE
@@ -458,25 +529,29 @@ int main(void) {
           printf("caricato un precedente salvataggio\n\n");
         }
         else {
-          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n\n");
+          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n");
         }
       }
       else if (stato1 == 9) { //USCIRE
         if (!strcmp(comando_oggetto, "\0")) {
+          salva_su_file(savefile);
           quit = 1;
-          printf("Arrivederci, cavaliere.\n\n");
+          printf("shutting down...\n");
         }
         else {
-          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n\n");
+          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n");
         }
       }
-      else if (stato1 == 10) { //COMANDI
+      else if (stato1 == 10) { //AIUTO
         if (!strcmp(comando_oggetto, "\0")) {
-          carica_storia(elenco_comandi);
-          printf("\n\n");
+            elenco_comandi= fopen("elenco_comandi.txt","r");
+            carica_storia(elenco_comandi);
+            printf("\n");
+            fclose(elenco_comandi);
+            
         }
         else {
-          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n\n");
+          printf("Devi scrivere di meno, intellettuale dei miei fondelli.\n");
         }
       }
       else if (stato1 == 11) { //INVENTARIO
@@ -502,10 +577,10 @@ int main(void) {
         }
       }
       else if (stato1 == 104) {
-        printf("Impara l’italiano e scrivi un comando decente.\n\n");
+        printf("Impara l’italiano104 e scrivi un comando decente.\n");
       }
       else {
-        printf("unexpected error\n\n");
+        printf("unexpected error\n");
       }
       j = 0;
     }
@@ -513,30 +588,28 @@ int main(void) {
 
     else { //PARSER COMBATTIMENTO
 
-      nemico_attuale = get_nemici(stanza_qualunque[stanza_attuale]);
+      nemico_attuale=get_nemici(stanza_qualunque[stanza_attuale]);
       lavoro = mossa_mostro();
 
-      danni_inflitti=get_danni_inflitti(utente);
-      printf("---------------------\n");
-      printf("(Vita giocatore: %d)\n",get_current_hp_utente(utente));
-      printf("(vita %s: %d)\n",get_nome_nemico(nemico_qualunque[nemico_attuale]),get_current_hp_nemico(nemico_qualunque[nemico_attuale]));
-      printf("---------------------\n");
+        danni_inflitti=get_danni_inflitti(utente);
+        printf("---------------------\n");
+        printf("(Vita giocatore: %d)\n",get_current_hp_utente(utente));
+        printf("(vita %s: %d)\n",get_nome_nemico(nemico_qualunque[nemico_attuale]),get_current_hp_nemico(nemico_qualunque[nemico_attuale]));
+        printf("---------------------\n");
 
       if(get_current_hp_utente(utente)>0 && get_current_hp_nemico(nemico_qualunque[nemico_attuale])>0){
 
         
         attaccare(&utente,&nemico_qualunque[nemico_attuale],0);
         
-        printf("-%s ti sta attaccando.\n Puoi parare o schivare l'attacco, a te la scelta:\n\n", get_nome_nemico(nemico_qualunque[get_nemici(stanza_qualunque[stanza_attuale])]));
+        printf("-%s ti sta attaccando.\n Puoi parare o schivare l'attacco, a te la scelta:\n", get_nome_nemico(nemico_qualunque[get_nemici(stanza_qualunque[stanza_attuale])]));
        
         while(stato1 == 104 && get_current_hp_utente(utente)>0){
          
           comando_utente = malloc(30*sizeof(char));
           fgets(comando_utente, 30, stdin);
           comando_utente[strcspn(comando_utente, "\n")] = '\0'; //rimuove \n dalla stringa input
-
           i=0;
-          printf("\n");
           while (i<2 && stato1 == 104) {
             if (!strcmp(comandi_combattimento[i], comando_utente)) {
               stato1 = i;
@@ -544,7 +617,6 @@ int main(void) {
             i++;
           }
           if (stato1 == 0) {
-            
             schivare(&utente,&nemico_qualunque[nemico_attuale], 0);
             
             lavoro = riesci_a_schivare(nemico_qualunque[nemico_attuale]);
@@ -552,18 +624,26 @@ int main(void) {
             if (lavoro == 0) {
               penitenza(&utente, &nemico_qualunque[nemico_attuale],0);
               printf("-Non sei riuscito a schivare il colpo di %s e hai preso %d danni. Ora è il tuo turno.\n Puoi attaccare o curarti, a te la scelta:\n", get_nome_nemico(nemico_qualunque[nemico_attuale]), get_danno_nemico(nemico_qualunque[nemico_attuale]));
+              printf(" (Vita giocatore: %d)\n",get_current_hp_utente(utente));
+              
             }
             else if (lavoro == 1) {
               printf("-Hai schivato l'attacco di %s. Congratulazioni, ora è il tuo turno.\n Puoi attaccare o curarti, a te la scelta:\n", get_nome_nemico(nemico_qualunque[nemico_attuale]));
+              printf(" (Vita giocatore: %d)\n",get_current_hp_utente(utente));
+             
             }
             else if (lavoro == 2) {
               parare(&utente,&nemico_qualunque[nemico_attuale], 0);
               printf("-Non hai schivato completamente il colpo di %s e hai preso %d danni.\n Ora è il tuo turno. Puoi attaccare o curarti, a te la scelta:\n", get_nome_nemico(nemico_qualunque[nemico_attuale]), get_danno_nemico(nemico_qualunque[nemico_attuale])/2);
+              printf(" (Vita giocatore: %d)\n",get_current_hp_utente(utente));
+              
             }
           }
           else if (stato1 == 1) {
             parare(&utente,&nemico_qualunque[nemico_attuale], 0);
             printf("-Hai parato l'attacco di %s. Congratulazioni, ora è il tuo turno.\n Puoi attaccare o curarti, a te la scelta:\n",get_nome_nemico(nemico_qualunque[nemico_attuale]));
+            printf(" (Vita giocatore: %d)\n",get_current_hp_utente(utente));
+        
           } 
           else if (stato1 == 104) {
             penitenza(&utente, &nemico_qualunque[nemico_attuale],0);
@@ -572,8 +652,6 @@ int main(void) {
           else {
             printf("-Unexpected error\n");
           } 
-
-          printf(" (Vita giocatore: %d)\n\n",get_current_hp_utente(utente));
         }
         stato1=104;
         while(stato1 == 104 && get_current_hp_utente(utente)>0){
@@ -581,8 +659,6 @@ int main(void) {
           comando_utente = malloc(30*sizeof(char));
           fgets(comando_utente, 30, stdin);
           comando_utente[strcspn(comando_utente, "\n")] = '\0'; //rimuove \n dalla stringa input
-
-          printf("\n");
           i=2;
           while (i<4 && stato1 == 104) {
             if (!strcmp(comandi_combattimento[i], comando_utente)) {
@@ -594,7 +670,7 @@ int main(void) {
             attaccare(&utente,&nemico_qualunque[nemico_attuale], 0);
           }
           else if (stato1 == 3) {
-            
+            i++;
             if (inventario[0]) {
               inventario[0]--;
               danni_inflitti=usare_pozione(&utente);
@@ -637,13 +713,12 @@ int main(void) {
           printf(" (vita: %d)\n",get_current_hp_nemico(nemico_qualunque[nemico_attuale]));
           
         }
-        printf("\n");
       }
    
       else if(get_current_hp_utente(utente)<=0){
         contatore_vite--;
         if (contatore_vite) { //puoi tentare di nuovo dal tuo ultimo salvataggio
-          printf("Sei morto! Riprova dall'ultimo salvataggio.\n");
+          printf("down...\n"); //DA FARE CARICAMENTO
           carica_da_file(savefile);
           if (contatore_vite == 1) {
             printf("Hai %d vita rimasta.\n\n", contatore_vite);
@@ -658,8 +733,8 @@ int main(void) {
           carica_da_file(newgame);
           salva_su_file(savefile);
         }
-      }
-      else if (get_current_hp_nemico(nemico_qualunque[nemico_attuale])<=0){
+      }else if (get_current_hp_nemico(nemico_qualunque[nemico_attuale])<=0){
+        quit=0;
         
         printf("Hai ucciso %s. Congratulazioni! + %d HP. Ora puoi esplorare la stanza.\n\n", get_nome_nemico(nemico_qualunque[nemico_attuale]), usare_pozione(&utente));
         set_nemici(&stanza_qualunque[stanza_attuale], 0);
@@ -672,17 +747,10 @@ int main(void) {
     i = 0;
     stato1 = 104;
     stato2 = 104;
-  }
+    }
   
 
-  libera_memoria();
-
-  fclose(newgame);
-  fclose(savefile);
-  fclose(introduzione);
-  fclose(storia);
-  fclose(pergamene);
-  fclose(elenco_comandi);
+  //libera_memoria(stanza_qualunque, nemico_qualunque, npc_qualunque);
 
   return 0;
 }
